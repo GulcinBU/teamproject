@@ -1,5 +1,3 @@
-## Github test
-
 ## Registration
 
 ## Login
