@@ -13,10 +13,10 @@ def userregistration(name,email,password):
     user_details = {"_id":uuid.uuid4().hex,"Name":name,"Email":email,"Password":hashed_password}
     check = col.find_one({"Email":email})
     if check:
-        return 'user already exists'
+        return 'User already exists'
     else:
         col.insert_one(user_details)
-        return 'registration is successful'
+        return 'Registration is successful'
 
 ## Login
 def login(email,password):
@@ -24,14 +24,14 @@ def login(email,password):
     if check:
         hash_password = hashlib.sha256(password.encode('utf-8')).hexdigest()
         if check["Password"] == hash_password:
-            return 'success'
+            return 'Success'
         else:
-            return 'wrong password'
+            return 'Wrong password'
     else:
         return 'No user found'
 
 ## Update password
-def updatepassword (email,password):
+def updatepassword (name, email,password):
     hashed_password = hashlib.sha256(password.encode('utf-8')).hexdigest()
     check = col.find_one({"Email":email})
     if check:
