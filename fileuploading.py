@@ -7,10 +7,9 @@ import pandas as pd
 import pymongo
 import certifi
 import uuid
-import pymongoimport
-client = pymongo.MongoClient("mongodb+srv://gulcin:Gevece98@c2codeequals.ilgclzn.mongodb.net/?retryWrites=true&w=majority" , tlsCAFile = certifi.where( ) )
+client = pymongo.MongoClient("mongodb+srv://TessaDK:Equals2022@userdetails.smpsogr.mongodb.net/?retryWrites=true&w=majority",tlsCAFile=certifi.where())
 
-db = client["UploadedFiles"]
+db = client["Userdetails"]
 col = db ["Filedetails"]
 filetags = st.text_input("Please enter tags of your data separating by comma")
 uploaded_files = st.file_uploader("Choose  CSV file(s)", accept_multiple_files=True, type=['csv'])
@@ -26,28 +25,7 @@ for uploaded_file in uploaded_files:
 		st.write(file_details1)
 		st.dataframe(df.head())
 		col.insert_one(file_details)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		columnheaders = df.columns.tolist()
+		pred_target = st.selectbox('Select prediction target',columnheaders)
+		features = st.multiselect('Select features', columnheaders)
+		trainingsize = st.slider('Select training size (a minimum of 0.6 or maximum of 0.8 is recommended)', min_value=0.0, max_value=1.0)

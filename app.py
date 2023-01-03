@@ -3,7 +3,7 @@ from streamlit_option_menu import option_menu
 import login
 
 with st.sidebar:
-    option = option_menu("User login",["Register","Login","Update password","Reset password"],orientation="vertical")
+    option = option_menu("User login",["Register","Login","Update password"],orientation="vertical")
 
 if option == "Register":
     with st.expander("Expand to register",expanded=True):

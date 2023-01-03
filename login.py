@@ -6,7 +6,6 @@ import secrets
 import datetime
 import smtplib
 
-
 client = pymongo.MongoClient("mongodb+srv://TessaDK:Equals2022@userdetails.smpsogr.mongodb.net/?retryWrites=true&w=majority",tlsCAFile=certifi.where())
 db = client["Userdetails"]
 col = db["Registrations"]
@@ -38,6 +37,7 @@ def login(email,password):
 # Add email address sender
 # Hide page to reset password
 # Add link to page to reset password
+# Add server
 def send_password_reset_email(email):
     token = secrets.token_hex(16)
     sender = 'noreply@example.com'
