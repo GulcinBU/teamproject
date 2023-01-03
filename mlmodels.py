@@ -3,6 +3,13 @@ from sklearn.svm import SVC
 ### Ensemble - Bagging , boosting and stacking
 ### hyperparameter tuning
 '''
+'''
+- Accuracy score
+- Confusion matrix
+- Classification report
+- Data prediction
+- Table of accuracies
+'''
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import GaussianNB
@@ -17,44 +24,51 @@ X = fileuploading.features
 X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=fileuploading.trainingsize,random_state=0)
 
 ## Linear regression
+model_lin = LinearRegression()
+model_lin.fit(X_train, y_train)
+y_pred = model_lin.predict(X_test)
+confusion_matrix = confusion_matrix(y_test, y_pred)
+classification_report = classification_report(y_test, y_pred)
+accuracy_score = accuracy_score(y_test, y_pred)
+print("Confusion Matrix:", confusion_matrix)
+print("Classification Report:", classification_report)
+print("Accuracy Score:", accuracy_score)
 
 ## Logistic regression
-model = LogisticRegression()
-model.fit(X_train,y_train)
-
-X_new = [2,100,60,20,30,30,0.7,25] ## new user input
-y_new = model.predict([X_new])
-print(y_new)
-
-y_pred = model.predict(X_test)
-cnfm = confusion_matrix(y_test,y_pred)
-print(cnfm)
-
-acc = accuracy_score(y_test,y_pred)
-print(acc)
-
-clf = classification_report(y_test,y_pred)
-print('Metrics for logistic regression')
-print(clf)
-
-model_nb = GaussianNB()
-model_nb.fit(X_train,y_train)
-print('Metrics for GaussianNB')
-
-y_pred_nb = model_nb.predict(X_test)
-clf_nb = classification_report(y_test,y_pred_nb)
-print(clf_nb)
+model_log = LogisticRegression()
+model_log.fit(X_train,y_train)
+y_pred = model_log.predict(X_test)
+confusion_matrix = confusion_matrix(y_test, y_pred)
+classification_report = classification_report(y_test, y_pred)
+accuracy_score = accuracy_score(y_test, y_pred)
+print("Confusion Matrix:", confusion_matrix)
+print("Classification Report:", classification_report)
+print("Accuracy Score:", accuracy_score)
 
 ## KNN
-model = KNeighborsClassifier(n_neighbors=3)
-model.fit(x_train,y_train)
-y_pred = model.predict(x_test)
-clf = classification_report(y_test, y_pred)
-print(clf)
+model_knn = KNeighborsClassifier(n_neighbors=3)
+model_knn.fit(x_train,y_train)
+y_pred = model_knn.predict(x_test)
+confusion_matrix = confusion_matrix(y_test, y_pred)
+classification_report = classification_report(y_test, y_pred)
+accuracy_score = accuracy_score(y_test, y_pred)
+print("Confusion Matrix:", confusion_matrix)
+print("Classification Report:", classification_report)
+print("Accuracy Score:", accuracy_score)
 
-## Naive bayes
+## Gaussian Naive Bayes
+model_nb = GaussianNB()
+model_nb.fit(X_train,y_train)
+y_pred_nb = model_nb.predict(X_test)
+confusion_matrix = confusion_matrix(y_test, y_pred)
+classification_report = classification_report(y_test, y_pred)
+accuracy_score = accuracy_score(y_test, y_pred)
+print("Confusion Matrix:", confusion_matrix)
+print("Classification Report:", classification_report)
+print("Accuracy Score:", accuracy_score)
 
 ## SVM
+
 
 ## Decision trees
 from sklearn.tree import DecisionTreeClassifier
