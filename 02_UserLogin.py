@@ -82,6 +82,6 @@ if option == "Update password":
 #         st.success(result_reset)
 #         st.error(result_reset)
 
-next = st.button("next")
+next = st.button("Next")
 if next:
     switch_page("uploaddata")
