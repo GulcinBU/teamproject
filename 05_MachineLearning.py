@@ -51,8 +51,7 @@ for uploaded_file in uploaded_files:
         features = st.multiselect('Select features', columnheaders)
         trainingsize = st.slider('Select training size', min_value=0.0, max_value=1.0, value=0.7)
         ## Split data in test and train
-        y = getattr(uploaded_files, uploaded_files.pred_target)
-        print(y)
+        y =  pred_target
         X = features[]
         X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=trainingsize, random_state=0)
 

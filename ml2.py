@@ -21,6 +21,7 @@ features =st.multiselect('Select features', columnheaders)
 trainingsize = st.slider('Select training size', min_value=0.0, max_value=1.0, value=0.7)
 ## Split data in test and train
 y = df[pred_target]
+X = features
 for i in features:
     List =[i]
     st.write(List)
@@ -29,13 +30,6 @@ for i in features:
         df1 = df.drop(df[n])
         st.write(df1)
 
+print(y)
 
-
-
-
-
-
-
-
-
-
+print(X)
