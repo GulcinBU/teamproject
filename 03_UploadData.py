@@ -121,7 +121,7 @@ for uploaded_file in uploaded_files:
 	st.text(s)
 
 	st.subheader(' Download Your Cleaned Data ')
-	st.write( ' Data handling process is done! Please save the new clean data for the next steps!!')
+	st.write( ' Data handling process is done! Please save the new clean data for the next steps!')
 
 
 	def convert_df(df_2):
