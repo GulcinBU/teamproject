@@ -48,40 +48,24 @@ st.write("# Welcome to DataLimn!")
 
 st.markdown(
     """
-    DataLimn is an open-source app framework built specifically for
-    Machine Learning and Data Science projects. You will get a detailed information 
-    about your data when you simply upload your csv file and follow the instructions. 
+    
+## Welcome to DataLimn! 👋
 
-    ### What is DataLimn?
-    AppName is an AI based tool that can get your data set via uploading, 
-    dissolve patterns in your data, can interpret the result, 
-    and can then produce an output story that is understandable 
-    to a business user based on the context.
-     It is able to pro-actively analyse data on behalf of users and 
-     generate smart feeds using natural language generation techniques 
-     which can then be consumed easily by business users with very less efforts. 
-     The application has been built keeping in mind a rather elementary 
-     user and is hence, easily usable and understandable. 
-     This also uses a multipage implementation of 
-     Streamlit Library using Class based pages.
-    - Ask a question in our [community
-        forums](https://discuss.streamlit.io)
-    ### Features
-    Given data/analytics output, the tool can 
-    - turn the data into interactive data stories based on the given data
-    - generate deep insights, infer pattern and help in business decisions.
-    - provide personalization profiles; these could be represented as meta data describing what would be of interest to a given user.
-    - generate reports understandable to a business user with interactive and intuitive interface.
-    ### Module Description
-    - Data Upload
-    This module deals with the data upload. It can take csv and excel files. As soon as the data is uploaded, it creates a copy of the data to ensure that we don't have to read the data multiple times. It also saves the columns and their data types along with displaying them for the user. This is used to upload and save the data and it's column types which will be further needed at a later stage.
-    - Data Preparation 
-    Once the column types are saved in the metadata, we need to give the user the option to change the type. This is to ensure that the automatic column tagging can be overridden if the user wishes. For example a binary column with 0 and 1s can be tagged as numerical and the user might have to correct it. The three data types available are:
-    - Data Visualization
-    generate deep insights, infer pattern and help in business decisions.
-    - Machine Learning
-    provide personalization profiles; these could be represented as meta data describing what would be of interest to a given user.
+DataLimn is your go-to open-source framework for machine learning and data science projects. The easy to use app gives greater insight and detailed information about your data. You simply upload a CSV file, follow some steps, and get your results!
 
+# What does DataLimn do?
+DataLimn is a tool designed to analyse patterns and make predictions without having to have previous knowledge of coding. This no-code machine learning app evaluates and interprets your data, transforming it into an understandable story that can be of great value in business decision-making processes. 
+
+
+## Module description
+
+# Data uploading and preparation
+Upload a CSV file with your data. Once the data is uploaded the user can change the data type per column and select the training size. Furthermore , select the columns you would want to take into consideration as well as the column where you want to base your predictions on.
+
+# Machine learning and data visualisation
+The next step is to select one (or multiple) learning model(s) based on your data and the outcome you would like to see. Now it is time for our app to do the hard work. 
+
+The app will give you predictions and probabilities based on your data input, and some statistical graphs can be selected. Moreover, you can modify your input and generate a new outcome based on the features given. 
 
 """
 )
