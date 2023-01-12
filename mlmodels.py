@@ -9,6 +9,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix, accuracy_score, classification_report, mean_absolute_error
 import numpy as np
+import fileuploading
 from fileuploading import uploaded_files
 
 ## Split data in test and train
