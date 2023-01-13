@@ -10,10 +10,9 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix, accuracy_score, classification_report, mean_absolute_error
 import numpy as np
 import fileuploading
-from fileuploading import uploaded_files
 
 ## Split data in test and train
-y = uploaded_files.pred_target
+y = fileuploading.pred_target
 X = fileuploading.features
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=fileuploading.trainingsize, random_state=0)
