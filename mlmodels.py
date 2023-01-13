@@ -13,8 +13,7 @@ import fileuploading
 from fileuploading import uploaded_files
 
 ## Split data in test and train
-y = getattr(uploaded_files,uploaded_files.pred_target)
-print(y)
+y = uploaded_files.pred_target
 X = fileuploading.features
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=fileuploading.trainingsize, random_state=0)
