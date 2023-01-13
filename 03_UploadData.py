@@ -107,6 +107,7 @@ for uploaded_file in uploaded_files:
 	st.write(df_1)
 
 	st.subheader('Handling Missing Values')
+	st.write('All missing values are restored by median value of related column. ')
 	for i in df_1:
 		if df_1[i].dtypes != 'object' :
 			median_i = df_1[i].median()
@@ -115,13 +116,14 @@ for uploaded_file in uploaded_files:
 
 	st.write(df_2)
 	st.subheader(' General Information of Your Data After Missing Values Handling')
+
 	buffer = io.StringIO()
 	df_2.info(buf=buffer)
 	s = buffer.getvalue()
 	st.text(s)
 
 	st.subheader(' Download Your Cleaned Data ')
-	st.write( ' Data handling process is done! Please save the new clean data for the next steps!')
+	st.write( ' Data handling process is done! Please save the new clean data for the next steps!!')
 
 
 	def convert_df(df_2):
@@ -140,8 +142,9 @@ for uploaded_file in uploaded_files:
 
 
 
-
-next = st.button("Next")
+st.write(' ')
+st.write(' ')
+next = st.button("next")
 if next:
     switch_page("visualizedata")
 

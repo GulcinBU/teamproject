@@ -62,8 +62,9 @@ for uploaded_file in uploaded_files:
 
 
 
+st.write(' ')
+st.write(' ')
 
-
-next = st.button("Next")
+next = st.button("next")
 if next:
     switch_page("machinelearning")
