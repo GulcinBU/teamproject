@@ -42,8 +42,8 @@ for uploaded_file in uploaded_files:
         df = pd.read_csv(uploaded_file)
         columnheaders = df.columns.tolist()
         st.subheader('Please select x and y variables for Scatter Plot, Line Plot, Bar Plot and Box Plot')
-        feature_y = st.selectbox('Select y value', columnheaders)
         feature_x = st.selectbox('Select x values', columnheaders)
+        feature_y = st.selectbox('Select y value', columnheaders)
         st.subheader('Please select a single variable for Pie Plot')
         feature_z = st.selectbox('Select a value', columnheaders)
 
