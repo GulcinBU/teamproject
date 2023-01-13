@@ -33,7 +33,7 @@ def add_logo(logo_url: str):
 add_logo("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHYxaZGEwO_WB0G1XNt8YIRBROxYZe4Gu1xsQv-am-nNMEYwxhPhMGnTiIHsU_e3ginb1UcDlAy68jOoHN16Lh3088VutGmidRx0rv1OWdDkVsIGCM8RoGY-V8sZ7yUEiTsMoAWESPts6qOyZsfeH0q4EOqL0fVg6GlEB6sqGP2OKZeceEMJzv_Y4bRA/s320/logo.png")
 
 st.title('Get Plots of Your Data')
-st.write('Please upload your cleaned data which you downloaded in the "Upload Data" section.')
+st.subheader('Please upload your cleaned data which you downloaded in the "Upload Data" section.')
 
 #upload cleaned file
 uploaded_files = st.file_uploader("Choose  CSV file(s)", accept_multiple_files=True, type=['csv'])
@@ -41,24 +41,30 @@ for uploaded_file in uploaded_files:
     if uploaded_file is not None:
         df = pd.read_csv(uploaded_file)
         columnheaders = df.columns.tolist()
-        y = st.selectbox('Select y value', columnheaders)
-        x = st.selectbox('Select x values', columnheaders)
-        st.line_chart(df, x=x, y=y)
-        st.area_chart(df, x=x, y=y)
-        st.bar_chart(df, x=x, y=y)
+        st.subheader('Please select x and y variables for Scatter Plot, Line Plot, Bar Plot and Box Plot')
+        feature_y = st.selectbox('Select y value', columnheaders)
+        feature_x = st.selectbox('Select x values', columnheaders)
+        st.subheader('Please select a single variable for Pie Plot')
+        feature_z = st.selectbox('Select a value', columnheaders)
+
+        fig1 = px.scatter(df, x=feature_x, y=feature_y)
+        fig2 = px.line(df, x=feature_x, y=feature_y)
+        fig3 =px.bar(df, x=feature_x, y=feature_y)
+        fig4 = px.box(df, x=feature_x, y=feature_y)
+        fig5 = px.pie(df, feature_z)
+        st.subheader('Scatter Plot')
+        st.plotly_chart(fig1)
+        st.subheader('Line Plot')
+        st.plotly_chart(fig2)
+        st.subheader('Bar Plot')
+        st.plotly_chart(fig3)
+        st.subheader('Box Plot')
+        st.plotly_chart(fig4)
+        st.subheader('Pie Plot')
+        st.plotly_chart(fig5)
 
 
 
- #   scatterplot= df.plot(x='x', y='y', kind='scatter')
-   # lineplot = df.plot(x='x', y='y', kind='line')
- #   histplot= df.plot(x='x', y='y', kind='hist')
- #   pieplot= df.plot(x='x', y='y', kind='pie')
- #   cols_plots1 = st.columns(2)
- #   cols_plots1[0].plotly_chart(scatterplot, use_container_width=True)
-  #  cols_plots1[1].plotly_chart(lineplot, use_container_width=True)
-   # cols_plots2 = st.columns(2)
-  #  cols_plots2[0].plotly_chart(histplot, use_container_width=True)
-  #  cols_plots2[1].plotly_chart(pieplot, use_container_width=True)
 
 
 
