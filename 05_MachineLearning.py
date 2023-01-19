@@ -105,8 +105,8 @@ for uploaded_file in uploaded_files:
                 st.success("Classification Report:", classification_report_knn)
                 st.success("Accuracy Score:", accuracy_score_knn)
             except ValueError:
-                rmse_knn = np.sqrt(np.mean((y_test - y_pred_lin) ** 2))
-                mae_knn = mean_absolute_error(y_test, y_pred_lin)
+                rmse_knn = np.sqrt(np.mean((y_test - y_pred_knn) ** 2))
+                mae_knn = mean_absolute_error(y_test, y_pred_knn)
                 st.success("Root Mean Squared Error:", rmse_knn)
                 st.success("Mean Absolute Error:", mae_knn)
 
@@ -122,8 +122,8 @@ for uploaded_file in uploaded_files:
                 st.success("Classification Report:", classification_report_nb)
                 st.success("Accuracy Score:", accuracy_score_nb)
             except ValueError:
-                rmse_nb = np.sqrt(np.mean((y_test - y_pred_lin) ** 2))
-                mae_nb = mean_absolute_error(y_test, y_pred_lin)
+                rmse_nb = np.sqrt(np.mean((y_test - y_pred_nb) ** 2))
+                mae_nb = mean_absolute_error(y_test, y_pred_nb)
                 st.success("Root Mean Squared Error:", rmse_nb)
                 st.success("Mean Absolute Error:", mae_nb)
 
@@ -156,8 +156,8 @@ for uploaded_file in uploaded_files:
                 st.success("Classification Report:", classification_report_tree)
                 st.success("Accuracy Score:", accuracy_score_tree)
             except ValueError:
-                rmse_tree = np.sqrt(np.mean((y_test - y_pred_lin) ** 2))
-                mae_tree = mean_absolute_error(y_test, y_pred_lin)
+                rmse_tree = np.sqrt(np.mean((y_test - y_pred_tree) ** 2))
+                mae_tree = mean_absolute_error(y_test, y_pred_tree)
                 st.success("Root Mean Squared Error:", rmse_tree)
                 st.success("Mean Absolute Error:", mae_tree)
 
@@ -173,8 +173,8 @@ for uploaded_file in uploaded_files:
                 st.success("Classification Report:", classification_report_forest)
                 st.success("Accuracy Score:", accuracy_score_forest)
             except ValueError:
-                rmse_forest = np.sqrt(np.mean((y_test - y_pred_lin) ** 2))
-                mae_forest = mean_absolute_error(y_test, y_pred_lin)
+                rmse_forest = np.sqrt(np.mean((y_test - y_pred_forest) ** 2))
+                mae_forest = mean_absolute_error(y_test, y_pred_forest)
                 st.success("Root Mean Squared Error:", rmse_forest)
                 st.success("Mean Absolute Error:", mae_forest)
 

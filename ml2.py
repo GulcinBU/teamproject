@@ -82,8 +82,8 @@ try:
     print("Classification Report:", classification_report_knn)
     print("Accuracy Score:", accuracy_score_knn)
 except ValueError:
-    rmse_knn = np.sqrt(np.mean((y_test - y_pred_lin)**2))
-    mae_knn = mean_absolute_error(y_test,y_pred_lin)
+    rmse_knn = np.sqrt(np.mean((y_test - y_pred_knn)**2))
+    mae_knn = mean_absolute_error(y_test,y_pred_knn)
     print("Root Mean Squared Error:", rmse_knn)
     print("Mean Absolute Error:", mae_knn)
 
@@ -98,8 +98,8 @@ try:
     print("Classification Report:", classification_report_nb)
     print("Accuracy Score:", accuracy_score_nb)
 except ValueError:
-    rmse_nb = np.sqrt(np.mean((y_test - y_pred_lin)**2))
-    mae_nb = mean_absolute_error(y_test,y_pred_lin)
+    rmse_nb = np.sqrt(np.mean((y_test - y_pred_nb)**2))
+    mae_nb = mean_absolute_error(y_test,y_pred_nb)
     print("Root Mean Squared Error:", rmse_nb)
     print("Mean Absolute Error:", mae_nb)
 
@@ -130,8 +130,8 @@ try:
     print("Classification Report:", classification_report_tree)
     print("Accuracy Score:", accuracy_score_tree)
 except ValueError:
-    rmse_tree = np.sqrt(np.mean((y_test - y_pred_lin)**2))
-    mae_tree = mean_absolute_error(y_test,y_pred_lin)
+    rmse_tree = np.sqrt(np.mean((y_test - y_pred_tree)**2))
+    mae_tree = mean_absolute_error(y_test,y_pred_tree)
     print("Root Mean Squared Error:", rmse_tree)
     print("Mean Absolute Error:", mae_tree)
 
@@ -146,8 +146,8 @@ try:
     print("Classification Report:", classification_report_forest)
     print("Accuracy Score:", accuracy_score_forest)
 except ValueError:
-    rmse_forest = np.sqrt(np.mean((y_test - y_pred_lin)**2))
-    mae_forest = mean_absolute_error(y_test,y_pred_lin)
+    rmse_forest = np.sqrt(np.mean((y_test - y_pred_forest)**2))
+    mae_forest = mean_absolute_error(y_test,y_pred_forest)
     print("Root Mean Squared Error:", rmse_forest)
     print("Mean Absolute Error:", mae_forest)
 
