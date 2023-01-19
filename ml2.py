@@ -37,12 +37,6 @@ df = pd.DataFrame(data)
 dummy = pd.get_dummies(df, dummy_na=True)
 X = dummy.drop('selling_price', axis=1)
 y = dummy['selling_price']
-# pred_target = df['selling_price']
-# features = df.drop('selling_price', axis=1)
-# X = features.apply(pd.to_numeric, errors='coerce')
-# y = pred_target.apply(pd.to_numeric, errors='coerce')
-# X.fillna(0, inplace=True)
-# y.fillna(0, inplace=True)
 X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.7, random_state=0)
 
 model_lin = LinearRegression()
@@ -157,14 +151,14 @@ except ValueError:
     print("Root Mean Squared Error:", rmse_forest)
     print("Mean Absolute Error:", mae_forest)
 
-# #Overview outcome
-# print(pd.DataFrame({
-# 'Metrics': ['Confusion matrix', 'Classification report', 'Accuracy score', 'RMSE', 'MAE'],
-# 'Linear regression': [confusion_matrix_lin, classification_report_lin, accuracy_score_lin, rmse_lin, mae_lin],
-# 'Logistic regression': [confusion_matrix_log, classification_report_log, accuracy_score_log, rmse_log, mae_log],
-# 'KNN':[confusion_matrix_knn, classification_report_knn, accuracy_score_knn, rmse_knn, mae_knn],
-# 'Gaussian Naive Bayes':[confusion_matrix_nb, classification_report_nb, accuracy_score_nb, rmse_nb, mae_nb],
-# 'Support Vector Machines':[confusion_matrix_svc, classification_report_svc, accuracy_score_svc, rmse_svc, mae_svc],
-# 'Decision trees':[confusion_matrix_tree, classification_report_tree, accuracy_score_tree, rmse_tree, mae_tree],
-# 'Random forest':[confusion_matrix_forest, classification_report_forest, accuracy_score_forest, rmse_forest, mae_forest],
-# }))
+#Overview outcome
+st.dataframe(pd.DataFrame({
+'Metrics': ['Confusion matrix', 'Classification report', 'Accuracy score', 'RMSE', 'MAE'],
+'Linear regression': [confusion_matrix_lin, classification_report_lin, accuracy_score_lin, rmse_lin, mae_lin],
+'Logistic regression': [confusion_matrix_log, classification_report_log, accuracy_score_log, rmse_log, mae_log],
+'KNN':[confusion_matrix_knn, classification_report_knn, accuracy_score_knn, rmse_knn, mae_knn],
+'Gaussian Naive Bayes':[confusion_matrix_nb, classification_report_nb, accuracy_score_nb, rmse_nb, mae_nb],
+'Support Vector Machines':[confusion_matrix_svc, classification_report_svc, accuracy_score_svc, rmse_svc, mae_svc],
+'Decision trees':[confusion_matrix_tree, classification_report_tree, accuracy_score_tree, rmse_tree, mae_tree],
+'Random forest':[confusion_matrix_forest, classification_report_forest, accuracy_score_forest, rmse_forest, mae_forest],
+}))
