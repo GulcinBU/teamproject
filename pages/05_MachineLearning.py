@@ -46,20 +46,19 @@ uploaded_files = st.file_uploader("Choose  CSV file(s)", accept_multiple_files=T
 for uploaded_file in uploaded_files:
     if uploaded_file is not None:
         df = pd.read_csv(uploaded_file)
-        columnheaders = df.columns.tolist()
+        dummy = pd.get_dummies(df, dummy_na=True)
+        columnheaders = dummy.columns.tolist()
         pred_target = st.selectbox('Select prediction target', columnheaders)
         trainingsize = st.slider('Select training size', min_value=0.0, max_value=1.0, value=0.7)
         ## Split data in test and train
-        dummy = pd.get_dummies(df, dummy_na=True)
         y = dummy[pred_target]
         X = dummy.drop(pred_target, axis=1)
         X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=trainingsize, random_state=0)
-
         option = ['Linear regression', 'Logistic regression', 'KNN', 'Gaussian Naive Bayes', 'SVM', 'Decision tree',
                   'Random forest']
         selected_options = st.multiselect('Select the model(s) you want to use', option)
-        result = st.checkbox('Predict')
-        if result:
+        predict = st.checkbox('Predict')
+        if predict:
             if option == 'Linear regression' in selected_options:
                 model_lin = LinearRegression()
                 model_lin.fit(X_train, y_train)
@@ -68,14 +67,11 @@ for uploaded_file in uploaded_files:
                     confusion_matrix_lin = confusion_matrix(y_test, y_pred_lin)
                     classification_report_lin = classification_report(y_test, y_pred_lin)
                     accuracy_score_lin = accuracy_score(y_test, y_pred_lin)
-                    st.write(f"Confusion Matrix:{confusion_matrix_lin}")
-                    st.write("Classification Report:", classification_report_lin)
-                    st.write("Accuracy Score:", accuracy_score_lin)
+                    result = f"Confusion Matrix:{confusion_matrix_lin}, Classification Report: {classification_report_lin}, Accuracy Score:{accuracy_score_lin}"
                 except ValueError:
                     rmse_lin = np.sqrt(np.mean((y_test - y_pred_lin) ** 2))
                     mae_lin = mean_absolute_error(y_test, y_pred_lin)
-                    st.write(f"Root Mean Squared Error: {rmse_lin}")
-                    st.write(f"Mean Absolute Error: {mae_lin}")
+                    result = f"Root Mean Squared Error: {rmse_lin}, Mean Absolute Error: {mae_lin}"
 
             if option == 'Logistic regression' in selected_options:
                 model_log = LogisticRegression()
@@ -178,6 +174,7 @@ for uploaded_file in uploaded_files:
                     mae_forest = mean_absolute_error(y_test, y_pred_forest)
                     st.write("Root Mean Squared Error:", rmse_forest)
                     st.write("Mean Absolute Error:", mae_forest)
+        return result
 
             # Overview outcome
             # st.write(pd.DataFrame({
