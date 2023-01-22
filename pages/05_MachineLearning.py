@@ -67,11 +67,11 @@ for uploaded_file in uploaded_files:
                     confusion_matrix_lin = confusion_matrix(y_test, y_pred_lin)
                     classification_report_lin = classification_report(y_test, y_pred_lin)
                     accuracy_score_lin = accuracy_score(y_test, y_pred_lin)
-                    result = f"Confusion Matrix:{confusion_matrix_lin}, Classification Report: {classification_report_lin}, Accuracy Score:{accuracy_score_lin}"
+                    st.write(f"Confusion Matrix:{confusion_matrix_lin}, Classification Report: {classification_report_lin}, Accuracy Score:{accuracy_score_lin}")
                 except ValueError:
                     rmse_lin = np.sqrt(np.mean((y_test - y_pred_lin) ** 2))
                     mae_lin = mean_absolute_error(y_test, y_pred_lin)
-                    result = f"Root Mean Squared Error: {rmse_lin}, Mean Absolute Error: {mae_lin}"
+                    st.write(f"Root Mean Squared Error: {rmse_lin}, Mean Absolute Error: {mae_lin}")
 
             if option == 'Logistic regression' in selected_options:
                 model_log = LogisticRegression()
@@ -174,7 +174,6 @@ for uploaded_file in uploaded_files:
                     mae_forest = mean_absolute_error(y_test, y_pred_forest)
                     st.write("Root Mean Squared Error:", rmse_forest)
                     st.write("Mean Absolute Error:", mae_forest)
-        return result
 
             # Overview outcome
             # st.write(pd.DataFrame({
