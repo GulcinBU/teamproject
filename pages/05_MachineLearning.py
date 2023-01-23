@@ -47,7 +47,7 @@ for uploaded_file in uploaded_files:
     if uploaded_file is not None:
         df = pd.read_csv(uploaded_file)
         dummy = pd.get_dummies(df, dummy_na=True)
-        columnheaders = dummy.columns.tolist()
+        columnheaders = df.columns.tolist()
         pred_target = st.selectbox('Select prediction target', columnheaders)
         trainingsize = st.slider('Select training size', min_value=0.0, max_value=1.0, value=0.7)
         ## Split data in test and train
